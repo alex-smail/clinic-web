@@ -53,10 +53,10 @@
 
 ### 1. Клонировать проект:
 
-\`\`\`bash
+<pre>
 git clone https://github.com/alex-smail/clinic-web.git
 cd clinic-web
-\`\`\`
+</pre>
 
 ### 2. Установить зависимости:
 
