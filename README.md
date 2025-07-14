@@ -77,16 +77,21 @@ PORT=3000
 MONGODB_URI=mongodb+srv://your_user:your_password@cluster.mongodb.net/clinic
 </pre>
 
-### 4. Запустить сервер:
+### 4. Создаем build:
+<pre>
+	npm run build
+</pre>
+
+### 5. Запустить сервер:
 
 <pre>
-node server.js
+npm start
 </pre>
 
 > Сервер будет доступен по адресу: [http://localhost:3000](http://localhost:3000)
 
 ---
-### 5. Скриншоты:
+### 6. Скриншоты:
 
 <div align="center">
   <img src="./src/assets/1.png" alt="img">
