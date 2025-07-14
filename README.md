@@ -60,28 +60,28 @@ cd clinic-web
 
 ### 2. Установить зависимости:
 
-\`\`\`bash
+<pre>
 npm install
-\`\`\`
+</pre>
 
 ### 3. Создать файл `.env`:
 
-\`\`\`bash
+<pre>
 touch .env
-\`\`\`
+</pre>
 
 Пример содержимого `.env`:
 
-\`\`\`
+<pre>
 PORT=3000
 MONGODB_URI=mongodb+srv://your_user:your_password@cluster.mongodb.net/clinic
-\`\`\`
+</pre>
 
 ### 4. Запустить сервер:
 
-\`\`\`bash
+<pre>
 node server.js
-\`\`\`
+</pre>
 
 > Сервер будет доступен по адресу: [http://localhost:3000](http://localhost:3000)
 
