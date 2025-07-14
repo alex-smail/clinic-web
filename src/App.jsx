@@ -1,19 +1,17 @@
-// import { Route, Routes } from "react-router-dom";
-import styles from './App.module.css';
-import { Header } from "./components";
+import { Route, Routes } from 'react-router-dom';
+import { Header } from './components';
+import { AppointmentForm } from './pages';
 const App = () => {
-
-
 	return (
 		<>
 			<Header />
-			{/* <div>
+			<div>
 				<Routes>
-					<Route path="/" element={<Form />} />
-					<Route path="/login" element={<Authorization />} />
-					<Route path="*" element={<Error />} />
+					<Route path="/" element={<AppointmentForm />} />
+					{/* <Route path="/login" element={<Authorization />} />
+					<Route path="*" element={<Error />} /> */}
 				</Routes>
-			</div> */}
+			</div>
 		</>
 	);
 };

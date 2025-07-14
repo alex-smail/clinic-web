@@ -16,7 +16,7 @@
 
 .btn:hover {
 	transform: scale(1.1);
-	border: 3px solid #4472fd96;
+	border: 1px solid #4472fd96;
 }
 
 .header {
