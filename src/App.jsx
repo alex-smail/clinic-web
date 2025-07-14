@@ -4,7 +4,7 @@ import { AppointmentForm, Authorization, PatientsList } from './pages';
 
 const App = () => {
 	const location = useLocation(); // для определения текущего маршрута
-	const hideHeader = location.pathname === '/login'; // если текущий маршрут равен '/login', то скрыть заголовок
+	const hideHeader = location.pathname === '/login' || location.pathname === '/patients'; // если текущий маршрут равен '/login', то скрыть заголовок
 
 	return (
 		<>

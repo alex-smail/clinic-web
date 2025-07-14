@@ -32,6 +32,7 @@ app.post('/', async (req, res) => {
 	}
 });
 
+// Страница авторизации
 app.get('/login', async (req, res) => {
 	res.render('login', {
 		title: 'Express App',
@@ -39,6 +40,7 @@ app.get('/login', async (req, res) => {
 	});
 });
 
+// API для авторизации
 app.post('/login', async (req, res) => {
 	try {
 		const { email, password } = req.body;
@@ -53,10 +55,17 @@ app.post('/login', async (req, res) => {
 	}
 });
 
+// API для получения списка заявок
+app.get('/patients', async (req, res) => {
+	const patients = await getPatients();
+	res.json(patients);
+});
+
 // Отдаём статику
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Подключение к Mongo и старт сервера
+// eslint-disable-next-line no-undef
 mongoose.connect(process.env.MONGODB_URI).then(() => {
 	app.listen(PORT, () => {
 		console.log(chalk.green(`Сервер работает: http://localhost:${PORT}`));

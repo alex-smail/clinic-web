@@ -13,26 +13,4 @@ async function getPatients() {
 	return patients;
 }
 
-// // Удаляем заметку
-// async function removeNote(id, owner) {
-// 	const result = await Note.deleteOne({ _id: id, owner });
-
-// 	if (result.matchedCount === 0) {
-// 		throw new Error('Note not found');
-// 	}
-// 	console.log(chalk.bgGreen('Note was deleted'));
-// }
-
-// // Редактируем заметку
-// async function editNote(id, title, owner) {
-// 	const result = await Note.updateOne({ _id: id, owner }, { title });
-
-// 	if (result.matchedCount === 0) {
-// 		throw new Error('Note not found');
-// 	}
-
-// 	console.log(chalk.bgGreen('Note was edited'));
-// }
-
-
 export { addPatient, getPatients };
