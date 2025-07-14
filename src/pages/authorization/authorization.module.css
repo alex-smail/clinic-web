@@ -1,0 +1,30 @@
+.formContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 95vh;
+	flex-direction: column;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	padding: 40px;
+	gap: 8px;
+	background-color: rgba(195, 191, 191, 0.347);
+	border-radius: 8px;
+}
+
+.title {
+	color: black;
+	font-size: 40px;
+	font-weight: 600;
+	margin: 0;
+}
+
+.error {
+	color: red;
+	font-size: 16px;
+	font-weight: 600;
+	margin: auto;
+}
