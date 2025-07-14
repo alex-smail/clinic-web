@@ -1,4 +1,4 @@
-# Logs
+# --- Logs ---
 logs
 *.log
 npm-debug.log*
@@ -7,18 +7,44 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# --- Runtime files ---
+.pids
+*.pid
+*.seed
+*.pid.lock
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# --- Dependency directories ---
+node_modules/
+
+# --- Build output ---
+dist/
+dist-ssr/
+build/
+.temp/
+.temp_cache/
+.cache/
+.next/
+out/
+
+# --- Env files (секреты) ---
+.env
+.env.*      # на случай .env.local, .env.production и т.д.
+
+# --- System files ---
 .DS_Store
+Thumbs.db
+
+# --- IDE / Editor files ---
+.vscode/
+!.vscode/extensions.json     # оставим рекомендации
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# --- Optional: MacOS/Linux swap & temporary files ---
+*.swp
+*.bak
+*.tmp
