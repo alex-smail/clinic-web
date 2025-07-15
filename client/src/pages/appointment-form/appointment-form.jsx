@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button, Input } from '../../components';
 import InputMask from 'react-input-mask';
 import styles from './appointment-form.module.css';
@@ -17,31 +18,34 @@ export const AppointmentForm = () => {
 	}, [fullName, phone]);
 
 	const handleSubmit = async (e) => {
-		e.preventDefault();
+	e.preventDefault();
 
-		try {
-			const response = await fetch('/', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ fullName, phone, complaint }),
-			});
+	try {
+		const response = await fetch('/api/patients', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ fullName, phone, complaint }),
+		});
 
-			const data = await response.json();
+		console.log('Ответ от сервера:', response);
 
-			if (response.ok) {
-				setSuccessMessage('Заявка успешно отправлена!');
+		const contentType = response.headers.get('content-type');
+		const isJson = contentType && contentType.includes('application/json');
+		const data = isJson ? await response.json() : null;
 
-				// Сброс формы
-				setFullName('');
-				setPhone('');
-				setComplaint('');
-			} else {
-				console.error(data.message || 'Ошибка при отправке');
-			}
-		} catch (err) {
-			console.error('Ошибка:', err);
+		if (response.ok) {
+			setSuccessMessage('Заявка успешно отправлена!');
+			setFullName('');
+			setPhone('');
+			setComplaint('');
+		} else {
+			console.error(data?.message || 'Ошибка при отправке');
 		}
-	};
+	} catch (err) {
+		console.error('Ошибка:', err);
+	}
+};
+
 
 	return (
 		<div className={styles.formContainer}>

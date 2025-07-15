@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button, Input } from '../../components';
 import styles from './authorization.module.css';
 import { useState, useEffect } from 'react';
@@ -18,13 +19,13 @@ export const Authorization = () => {
 		e.preventDefault();
 
 		try {
-			const response = await fetch('/login', {
+			const response = await fetch('/api/login', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ email, password }),
 			});
 
-			if (response.redirected) {
+			if (response.ok) {
 				navigate('/patients'); // Перенаправляем на страницу заявок
 			} else {
 				const data = await response.text(); // Получаем текст ответа
