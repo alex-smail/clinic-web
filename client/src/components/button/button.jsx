@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './button.module.css';
 // eslint-disable-next-line react/prop-types
 export const Button = ({ style, onClick, children, ...props }) => (

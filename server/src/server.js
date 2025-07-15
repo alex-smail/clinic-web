@@ -4,22 +4,23 @@ import mongoose from 'mongoose';
 import chalk from 'chalk';
 import path from 'path';
 import { fileURLToPath } from 'url';
+
 import {
-	addPatient,
-	getPatients,
-} from './src/controllers/patients.controller.js';
-import { PORT } from './src/config/index.js';
-import { loginUser } from './src/controllers/users.controller.js';
+  addPatient,
+  getPatients,
+} from './controllers/patients.controller.js';
+
+import { loginUser } from './controllers/users.controller.js';
+import { PORT } from './config/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-
 app.use(express.json()); // Для обработки JSON-запросов
 
-// API для отправки заявки
-app.post('/', async (req, res) => {
+// 🔹 API: добавление пациента
+app.post('/api/patients', async (req, res) => {
 	try {
 		const { fullName, phone, complaint } = req.body;
 		await addPatient(fullName, phone, complaint);
@@ -32,40 +33,33 @@ app.post('/', async (req, res) => {
 	}
 });
 
-// Страница авторизации
-app.get('/login', async (req, res) => {
-	res.render('login', {
-		title: 'Express App',
-		error: undefined,
-	});
-});
-
-// API для авторизации
-app.post('/login', async (req, res) => {
+// 🔹 API: авторизация
+app.post('/api/login', async (req, res) => {
 	try {
 		const { email, password } = req.body;
 		await loginUser(email, password);
-
-		res.redirect('/patients');
+		res.status(200).json({ message: 'Успешный вход' });
 	} catch (e) {
-		res.render('login', {
-			title: 'Express App',
-			error: e.message,
-		});
+		res.status(401).json({ message: e.message });
 	}
 });
 
-// API для получения списка заявок
-app.get('/patients', async (req, res) => {
-	const patients = await getPatients();
-	res.json(patients);
+// 🔹 API: получение всех пациентов
+app.get('/api/patients', async (req, res) => {
+	try {
+		const patients = await getPatients();
+		res.status(200).json(patients);
+	} catch (e) {
+		res.status(500).json({ message: 'Ошибка при получении пациентов' });
+	}
 });
 
-// Отдаём статику
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// Подключение к Mongo и старт сервера
-// eslint-disable-next-line no-undef
+// app.get('*', (req, res) => {
+// 	res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+// });
+
 mongoose.connect(process.env.MONGODB_URI).then(() => {
 	app.listen(PORT, () => {
 		console.log(chalk.green(`Сервер работает: http://localhost:${PORT}`));

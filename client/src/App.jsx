@@ -1,3 +1,4 @@
+import React from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { Header } from './components';
 import { AppointmentForm, Authorization, PatientsList } from './pages';

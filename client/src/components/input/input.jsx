@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import React from 'react';
 import styles from './input.module.css';
 
 export const Input = ({ type = "text", placeholder, ...props }) => (
