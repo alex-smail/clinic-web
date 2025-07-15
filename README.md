@@ -98,15 +98,15 @@ npm run dev
 ### 5. Скриншоты:
 
 <div align="center">
-  <img src="./src/assets/1.png" alt="img">
+  <img src="./client/src/assets/1.png" alt="img">
 </div>
 
 <div align="center">
-  <img src="./src/assets/2.png" alt="img">
+  <img src="./client/src/assets/2.png" alt="img">
 </div>
 
 <div align="center">
-  <img src="./src/assets/3.png" alt="img">
+  <img src="./client/src/assets/3.png" alt="img">
 </div>
 
 ---
